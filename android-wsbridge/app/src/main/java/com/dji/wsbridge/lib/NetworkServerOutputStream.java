@@ -6,7 +6,6 @@ package com.dji.wsbridge.lib;
 import com.dji.wsbridge.lib.connection.WSConnectionManager;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -16,22 +15,22 @@ import io.reactivex.schedulers.Schedulers;
 
 public class NetworkServerOutputStream extends OutputStream {
 
-    private static final String TAG = "BridgeStream";
+    // --Commented out by Inspection (12/11/2018 11:21 AM):private static final String TAG = "BridgeStream";
 
     private static final int TRANSFER_SIZE_WITHOUT_VIDEO = 5;
     private static final int TRANSFER_SIZE_WITH_VIDEO = 2 * 1024;
-    private static final int BUFFER_SIZE = 10 * 1024 * 1024;
+    // --Commented out by Inspection (12/11/2018 11:21 AM):private static final int BUFFER_SIZE = 10 * 1024 * 1024;
 
     private static final byte[] VIDEO_HEADER = {0x55, (byte) 0xcc, 0x4a, 0x57};
     private static final byte[] VIDEO_EXT_HEADER = {0x55, (byte) 0xcc, 0x4b, 0x57};
 
-    private WSConnectionManager mServer;
-    private ByteArrayOutputStream mBuffer;
-    private AtomicBoolean isSending = new AtomicBoolean(false);
+    private final WSConnectionManager mServer;
+    private final ByteArrayOutputStream mBuffer;
+    private final AtomicBoolean isSending = new AtomicBoolean(false);
     //private Observable timer
-    Observable<Boolean> observable = Observable.fromCallable(new Callable<Boolean>() {
+    private final Observable<Boolean> observable = Observable.fromCallable(new Callable<Boolean>() {
         @Override
-        public Boolean call() throws Exception {
+        public Boolean call() {
             isSending.set(true);
             // remove limit since memory issue has been fixed, this is no longer needed
             int limit = (mServer.streamFilter == WSConnectionManager.StreamFilter.FILTER_NONE)
@@ -53,19 +52,19 @@ public class NetworkServerOutputStream extends OutputStream {
     }
 
     @Override
-    public void write(int b) throws IOException {
+    public void write(int b) {
         if (b != -1) {
             writeAfterFilter(new byte[]{(byte) b}, 0, 1);
         }
     }
 
     @Override
-    public void write(byte[] b) throws IOException {
+    public void write(byte[] b) {
         writeAfterFilter(b, 0, b.length);
     }
 
     @Override
-    public void write(byte[] b, int off, int len) throws IOException {
+    public void write(byte[] b, int off, int len) {
         if (len != -1) {
             writeAfterFilter(b, off, len);
         }
@@ -81,8 +80,7 @@ public class NetworkServerOutputStream extends OutputStream {
     private boolean shouldFilter(byte[] b, int off, int len) {
         //off & len not checked.
         //assumes only one frame at a time. Need to check if there are multiple frames per call.
-        return ((mServer.streamFilter == WSConnectionManager.StreamFilter.FILTER_VIDEO) && (indexOf(b, VIDEO_HEADER)
-                >= 0 || indexOf(b, VIDEO_EXT_HEADER) >= 0)) ? false : true;
+        return (mServer.streamFilter != WSConnectionManager.StreamFilter.FILTER_VIDEO) || (indexOf(b, VIDEO_HEADER) < 0 && indexOf(b, VIDEO_EXT_HEADER) < 0);
     }
 
     private void sendIfReady() {

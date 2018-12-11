@@ -9,15 +9,11 @@ import android.hardware.usb.UsbManager;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.util.Log;
+
 import com.dji.wsbridge.BridgeActivity;
 import com.dji.wsbridge.lib.BridgeApplication;
 import com.dji.wsbridge.lib.DJILogger;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,6 +22,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class USBConnectionManager implements ConnectionManager {
 
@@ -154,7 +156,7 @@ public class USBConnectionManager implements ConnectionManager {
         return array;
     }
 
-    @Override
+
     public void closeStreams() {
         try {
             if (mOutStream != null) {

@@ -71,6 +71,7 @@
                 android:tintMode="add"
                 android:adjustViewBounds="false"
                 android:layout_gravity="start"
+                android:contentDescription="TODO"
                 android:scaleType="fitCenter"
                 android:src="@drawable/icon_rc"
                 android:layout_marginStart="15dp"
@@ -85,6 +86,7 @@
                 android:id="@+id/imageViewWifi"
                 android:adjustViewBounds="true"
                 android:layout_gravity="end"
+                android:contentDescription="TODO"
                 android:scaleType="fitCenter"
                 android:src="@drawable/icon_wifi"
                 android:layout_alignBottom="@+id/imageViewRC"
@@ -95,6 +97,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
+                android:contentDescription="TODO"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView"
                 android:background="@drawable/icon_dji"

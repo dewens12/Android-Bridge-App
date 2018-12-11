@@ -16,14 +16,13 @@ import org.json.JSONObject;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import okhttp3.Response;
 
+@SuppressWarnings("ALL")
 public class DJILogger extends Thread {
 
     public static final String CONNECTION_GOOD = "good";
@@ -35,12 +34,12 @@ public class DJILogger extends Thread {
     // Add your remote server IP
     private static final String REMOTE_LOGGER_URL = BuildConfig.REMOTE_LOGGER_URL;
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-    private static DJILogger instance = new DJILogger();
+    private static final DJILogger instance = new DJILogger();
     private String serverURL;
     private String deviceID;
     private boolean isEnabled = false;
-    private boolean isNetworkEnabled = true;
-    private List<JSONObject> messageQueue;
+    private final boolean isNetworkEnabled = true;
+    private final List<JSONObject> messageQueue;
 
     private DJILogger() {
         messageQueue = Collections.synchronizedList(new ArrayList<JSONObject>());
@@ -76,14 +75,16 @@ public class DJILogger extends Thread {
         }
     }
 
-    public static void w(String tag, String message) {
-        if (instance.isEnabled) {
-            if (instance.isNetworkEnabled) {
-                instance.sendMessage("warn", tag + ": " + message);
-            }
-            Log.e(tag, message);
-        }
-    }
+// --Commented out by Inspection START (12/11/2018 11:21 AM):
+//    public static void w(String tag, String message) {
+//        if (instance.isEnabled) {
+//            if (instance.isNetworkEnabled) {
+//                instance.sendMessage("warn", tag + ": " + message);
+//            }
+//            Log.e(tag, message);
+//        }
+//    }
+// --Commented out by Inspection STOP (12/11/2018 11:21 AM)
 
     public static void e(String tag, String message) {
         if (instance.isEnabled) {
@@ -145,18 +146,20 @@ public class DJILogger extends Thread {
         return new String(hexChars);
     }
 
-    public static String sha1Hash(byte[] bytes) {
-        String hash = null;
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
-            digest.update(bytes, 0, bytes.length);
-            bytes = digest.digest();
-            hash = bytesToHex(bytes);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return hash;
-    }
+// --Commented out by Inspection START (12/11/2018 11:21 AM):
+//    public static String sha1Hash(byte[] bytes) {
+//        String hash = null;
+//        try {
+//            MessageDigest digest = MessageDigest.getInstance("SHA-1");
+//            digest.update(bytes, 0, bytes.length);
+//            bytes = digest.digest();
+//            hash = bytesToHex(bytes);
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        }
+//        return hash;
+//    }
+// --Commented out by Inspection STOP (12/11/2018 11:21 AM)
 
     private void sendMessage(String LogLevel, String message) {
 
@@ -201,14 +204,14 @@ public class DJILogger extends Thread {
     @StringDef({
             CONNECTION_BAD, CONNECTION_GOOD, CONNTECTION_WARNING
     })
-    @interface ConnetionValueParam {
+    private @interface ConnetionValueParam {
     }
 
     @Retention(RetentionPolicy.CLASS)
     @IntDef({
             CONNECTION_RC, CONNECTION_BRIDGE
     })
-    @interface ConnetionTypeParam {
+    private @interface ConnetionTypeParam {
     }
 
 

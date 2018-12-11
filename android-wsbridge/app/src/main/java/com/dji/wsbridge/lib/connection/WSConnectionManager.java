@@ -22,7 +22,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,7 +37,7 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
     private static final int MAX_BUFFER_SIZE = 100;// To avoid OOM crash, ideally we should be more dynamic with this value
     private static WSConnectionManager instance;
     public StreamFilter streamFilter = StreamFilter.FILTER_NONE;
-    private LinkedBlockingDeque<ByteBuffer> mQueue;
+    private final LinkedBlockingDeque<ByteBuffer> mQueue;
     private ByteBuffer mLast;
     private Timer keepAlivePollTimer;
     private TimerTask keepAlivePollTimerTask;
@@ -47,9 +46,9 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
     private OutputStream mOutStream;
     private ByteStatCounter rxStatTracker;
     private ByteStatCounter txStatTracker;
-    private AtomicBoolean isSettingUpTimer = new AtomicBoolean(false);
+    private final AtomicBoolean isSettingUpTimer = new AtomicBoolean(false);
 
-    public WSConnectionManager(int port) throws UnknownHostException {
+    private WSConnectionManager(int port) {
         super(new InetSocketAddress(port));
         mQueue = new LinkedBlockingDeque<>(MAX_BUFFER_SIZE);
     }
@@ -156,8 +155,7 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
                     long currentTime = System.currentTimeMillis();
                     long delta = currentTime - lastPingTime;
                     if (lastPingTime > 0 && delta > DISCONNECT_TIMEOUT) {
-                        for (Iterator<WebSocket> iterator = connections().iterator(); iterator.hasNext(); ) {
-                            final WebSocket eachConnection = iterator.next();
+                        for (final WebSocket eachConnection : connections()) {
                             sendConnectivityStatus(false, eachConnection);
                             eachConnection.close();
                             DJILogger.e(TAG,
@@ -301,15 +299,17 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
         final String message;
         final int activeConnectionCount;
 
-        public WSConnectionEvent(boolean isConnected, String message, int activeConnectionCount) {
+        WSConnectionEvent(boolean isConnected, String message, int activeConnectionCount) {
             this.isConnected = isConnected;
             this.message = message;
             this.activeConnectionCount = activeConnectionCount;
         }
 
-        public boolean isConnected() {
-            return isConnected;
-        }
+// --Commented out by Inspection START (12/11/2018 11:21 AM):
+//        public boolean isConnected() {
+//            return isConnected;
+//        }
+// --Commented out by Inspection STOP (12/11/2018 11:21 AM)
 
         public String getMessage() {
             return message;
@@ -327,7 +327,7 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
         final boolean isSlowConnection;
         final String message;
 
-        public WSTrafficEvent(boolean isSlowConnection, String message) {
+        WSTrafficEvent(boolean isSlowConnection, String message) {
             this.isSlowConnection = isSlowConnection;
             this.message = message;
         }
@@ -343,8 +343,8 @@ public class WSConnectionManager extends WebSocketServer implements ConnectionMa
 
     private class ByteStatCounter {
 
-        public long recentByteCount = 0;
-        public double recentKBps = 0.0;
+        long recentByteCount = 0;
+        double recentKBps = 0.0;
 
         private long interval = 0;
         private long currByteCount = 0;

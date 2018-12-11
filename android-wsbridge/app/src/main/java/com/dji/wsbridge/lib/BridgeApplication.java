@@ -14,7 +14,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class BridgeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
-    public static final String TAG = "APPLICATION";
+    private static final String TAG = "APPLICATION";
     private static BridgeApplication instance;
     private final Bus eventBus = new Bus(ThreadEnforcer.ANY);
 
