@@ -1,0 +1,76 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <resourceExtensions />\r\n    <wildcardResourcePatterns>\r\n      <entry name=\"!?*.java\" />\r\n      <entry name=\"!?*.form\" />\r\n      <entry name=\"!?*.class\" />\r\n      <entry name=\"!?*.groovy\" />\r\n      <entry name=\"!?*.scala\" />\r\n      <entry name=\"!?*.flex\" />\r\n      <entry name=\"!?*.kt\" />\r\n      <entry name=\"!?*.clj\" />\r\n      <entry name=\"!?*.aj\" />\r\n    </wildcardResourcePatterns>\r\n    <annotationProcessing>\r\n      <profile default=\"true\" name=\"Default\" enabled=\"false\">\r\n        <processorPath useClasspath=\"true\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision 37871780511d57e95b09c6d2b34fa2a1a5af1c33)
++++ .idea/compiler.xml	(date 1596435386292)
+@@ -1,22 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <resourceExtensions />
+-    <wildcardResourcePatterns>
+-      <entry name="!?*.java" />
+-      <entry name="!?*.form" />
+-      <entry name="!?*.class" />
+-      <entry name="!?*.groovy" />
+-      <entry name="!?*.scala" />
+-      <entry name="!?*.flex" />
+-      <entry name="!?*.kt" />
+-      <entry name="!?*.clj" />
+-      <entry name="!?*.aj" />
+-    </wildcardResourcePatterns>
+-    <annotationProcessing>
+-      <profile default="true" name="Default" enabled="false">
+-        <processorPath useClasspath="true" />
+-      </profile>
+-    </annotationProcessing>
++    <bytecodeTargetLevel target="1.8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .gradle/buildOutputCleanup/cache.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Fri Dec 22 17:56:08 CST 2017\r\ngradle.version=4.1\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- .gradle/buildOutputCleanup/cache.properties	(revision 37871780511d57e95b09c6d2b34fa2a1a5af1c33)
++++ .gradle/buildOutputCleanup/cache.properties	(date 1596435436103)
+@@ -1,2 +1,2 @@
+-#Fri Dec 22 17:56:08 CST 2017
+-gradle.version=4.1
++#Mon Aug 03 01:17:16 CDT 2020
++gradle.version=4.4
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 37871780511d57e95b09c6d2b34fa2a1a5af1c33)
++++ .idea/gradle.xml	(date 1596435386337)
+@@ -1,8 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="testRunner" value="PLATFORM" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="modules">
+@@ -12,6 +14,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
