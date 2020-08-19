@@ -1,9 +1,10 @@
 package com.dji.wsbridge.lib;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.StringDef;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.StringDef;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
