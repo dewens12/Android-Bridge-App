@@ -5,9 +5,9 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="PLATFORM" />
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../Gradle/gradle-6.7-20200818220034+0000" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../Gradle/gradle-6.7-rc-5" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
