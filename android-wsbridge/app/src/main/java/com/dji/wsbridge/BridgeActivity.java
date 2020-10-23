@@ -41,11 +41,11 @@ public class BridgeActivity extends Activity {
     private TextView mIPTextView;
     private ImageView mRCIconView;
     private ImageView mWifiIconView;
-    private AtomicBoolean isUSBConnected = new AtomicBoolean(false);
-    private AtomicBoolean isRCConnected = new AtomicBoolean(false);
-    private AtomicBoolean isWiFiConnected = new AtomicBoolean(false);
-    private AtomicBoolean isWSTrafficSlow = new AtomicBoolean(false);
-    private AtomicBoolean isStreamRunnerActive = new AtomicBoolean(false);
+    private final AtomicBoolean isUSBConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isRCConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isWiFiConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isWSTrafficSlow = new AtomicBoolean(false);
+    private final AtomicBoolean isStreamRunnerActive = new AtomicBoolean(false);
     private InputStream usbInputStream;
     private OutputStream usbOutputStream;
     private InputStream wsInputStream;
