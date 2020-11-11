@@ -31,7 +31,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class USBConnectionManager implements ConnectionManager {
 
-    private static USBConnectionManager sInstance = new USBConnectionManager();
+    private static final USBConnectionManager sInstance = new USBConnectionManager();
     public static USBConnectionManager getInstance() {
         return sInstance;
     }
@@ -44,7 +44,7 @@ public class USBConnectionManager implements ConnectionManager {
 
     private InputStream mInStream;
     private OutputStream mOutStream;
-    private BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equalsIgnoreCase(UsbManager.ACTION_USB_ACCESSORY_DETACHED)) { //Check if change in USB state

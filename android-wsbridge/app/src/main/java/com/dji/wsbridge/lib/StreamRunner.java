@@ -10,9 +10,9 @@ public class StreamRunner extends Thread {
 
     private static final String TAG = StreamRunner.class.getSimpleName();
     public long byteCount = 0;
-    private InputStream mInputStream;
-    private OutputStream mOutputStream;
-    private AtomicBoolean mStop = new AtomicBoolean(false);
+    private final InputStream mInputStream;
+    private final OutputStream mOutputStream;
+    private final AtomicBoolean mStop = new AtomicBoolean(false);
 
     public StreamRunner(InputStream in, OutputStream out, String name) {
         super(name);

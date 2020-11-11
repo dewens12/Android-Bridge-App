@@ -41,11 +41,11 @@ public class BridgeActivity extends Activity {
     private TextView mIPTextView;
     private ImageView mRCIconView;
     private ImageView mWifiIconView;
-    private AtomicBoolean isUSBConnected = new AtomicBoolean(false);
-    private AtomicBoolean isRCConnected = new AtomicBoolean(false);
-    private AtomicBoolean isWiFiConnected = new AtomicBoolean(false);
-    private AtomicBoolean isWSTrafficSlow = new AtomicBoolean(false);
-    private AtomicBoolean isStreamRunnerActive = new AtomicBoolean(false);
+    private final AtomicBoolean isUSBConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isRCConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isWiFiConnected = new AtomicBoolean(false);
+    private final AtomicBoolean isWSTrafficSlow = new AtomicBoolean(false);
+    private final AtomicBoolean isStreamRunnerActive = new AtomicBoolean(false);
     private InputStream usbInputStream;
     private OutputStream usbOutputStream;
     private InputStream wsInputStream;
@@ -123,10 +123,10 @@ public class BridgeActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // Init all view elements
         setContentView(R.layout.activity_bridge);
-        mIPTextView = (TextView) findViewById(R.id.iptextView);
-        mRCIconView = (ImageView) findViewById(R.id.imageViewRC);
-        mWifiIconView = (ImageView) findViewById(R.id.imageViewWifi);
-        TextView mVersionTextView = (TextView) findViewById(R.id.versionText);
+        mIPTextView = findViewById(R.id.iptextView);
+        mRCIconView = findViewById(R.id.imageViewRC);
+        mWifiIconView = findViewById(R.id.imageViewWifi);
+        TextView mVersionTextView = findViewById(R.id.versionText);
         // Show version number
         try {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
