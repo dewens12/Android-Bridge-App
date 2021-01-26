@@ -4,6 +4,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/082d284ff39c8f3aec503c7fc16a9393/crashlytics-core-2.7.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/082d284ff39c8f3aec503c7fc16a9393/crashlytics-core-2.7.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/082d284ff39c8f3aec503c7fc16a9393/crashlytics-core-2.7.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/3abdceb981f74a2e02f28c33e6021219/jetified-crashlytics-core-2.7.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/3abdceb981f74a2e02f28c33e6021219/jetified-crashlytics-core-2.7.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/3abdceb981f74a2e02f28c33e6021219/jetified-crashlytics-core-2.7.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
