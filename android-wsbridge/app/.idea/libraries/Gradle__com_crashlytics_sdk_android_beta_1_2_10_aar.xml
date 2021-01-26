@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.crashlytics.sdk.android:beta:1.2.10@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/0d232ad8815cb58145c9c5c894c5f685/jetified-beta-1.2.10/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/0d232ad8815cb58145c9c5c894c5f685/jetified-beta-1.2.10/res" />
+      <root url="file://$PROJECT_DIR$/../../../../../../Gradle/gradle-6.8-rc-1/caches/transforms-2/files-2.1/0d232ad8815cb58145c9c5c894c5f685/jetified-beta-1.2.10/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
