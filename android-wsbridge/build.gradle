@@ -5,7 +5,9 @@ buildscript {
     repositories {
 
         //noinspection JcenterRepositoryObsolete
-        jcenter()
+
+        final def repository = jcenter()
+        repository
         google()
     }
     dependencies {
