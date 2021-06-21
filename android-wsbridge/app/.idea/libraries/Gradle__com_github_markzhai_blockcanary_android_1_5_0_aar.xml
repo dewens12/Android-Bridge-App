@@ -4,6 +4,8 @@
       <root url="jar://$USER_HOME$/StudioProjects/Mobile-SDK-Android/Sample Code/gradle/caches/transforms-3/b064642b69458c60be9c2724a516f21e/transformed/jetified-blockcanary-android-1.5.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/StudioProjects/Mobile-SDK-Android/Sample Code/gradle/caches/transforms-3/b064642b69458c60be9c2724a516f21e/transformed/jetified-blockcanary-android-1.5.0/res" />
       <root url="file://$USER_HOME$/StudioProjects/Mobile-SDK-Android/Sample Code/gradle/caches/transforms-3/b064642b69458c60be9c2724a516f21e/transformed/jetified-blockcanary-android-1.5.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../../../linuxbrew/.linuxbrew/Cellar/gradle/7.0.2_2/bin/caches/transforms-1/files-1.1/blockcanary-android-1.5.0.aar/3448b07366bdca4a42d2b39c7bdf9342/res" />
+      <root url="file://$PROJECT_DIR$/../../../../../../linuxbrew/.linuxbrew/Cellar/gradle/7.0.2_2/bin/caches/transforms-1/files-1.1/blockcanary-android-1.5.0.aar/3448b07366bdca4a42d2b39c7bdf9342/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/StudioProjects/Mobile-SDK-Android/Sample Code/gradle/caches/modules-2/files-2.1/com.github.markzhai/blockcanary-android/1.5.0/dec583555b4e14f7b933adc31f1d5c4c2c7de3f9/blockcanary-android-1.5.0-javadoc.jar!/" />
